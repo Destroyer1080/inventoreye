@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InventorEye — Discover the future of everyday tech</title>
+  <meta name="description" content="InventorEye curates innovative gadgets and smart tech that make life easier.">
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232563EB'/%3E%3Ccircle cx='32' cy='32' r='12' fill='white'/%3E%3C/svg%3E">
+  <style>
+    /* small utility for star icons */
+    .star::before { content: "★"; }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-gray-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-2">
+          <span class="relative">
+            <span class="w-8 h-8 inline-block rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 animate-pulse"></span>
+            <span class="absolute inset-0 flex items-center justify-center text-white font-bold">◉</span>
+          </span>
+          <span class="font-black tracking-tight text-xl">Inventor<span class="text-blue-600">Eye</span></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#products" class="hover:text-blue-600">Products</a>
+          <a href="#about" class="hover:text-blue-600">About</a>
+          <a href="#faq" class="hover:text-blue-600">FAQ</a>
+          <a href="#subscribe" class="hover:text-blue-600">Subscribe</a>
+          <a href="#products" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white shadow hover:bg-blue-700">Shop</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute -z-10 inset-0 bg-gradient-to-b from-blue-50 to-white"></div>
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-blue-700 bg-white shadow-sm">✨ New drops weekly</span>
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
+            See everyday life <span class="text-blue-600">differently</span>
+          </h1>
+          <p class="mt-4 text-gray-600 text-lg">InventorEye curates clever tech that solves real problems — pocket drones, inkless printers, magnetic power hubs and more.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#products" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-white shadow hover:bg-blue-700">Shop gadgets →</a>
+            <a href="#subscribe" class="inline-flex items-center gap-2 rounded-full border px-5 py-3 hover:bg-gray-50">Get updates</a>
+          </div>
+          <div class="mt-6 flex items-center gap-6 text-sm text-gray-600">
+            <div class="flex items-center gap-2">🛡️ 30-day returns</div>
+            <div class="flex items-center gap-2">📦 Tracked shipping</div>
+            <div class="flex items-center gap-2">🚀 Fast support</div>
+          </div>
+        </div>
+        <div class="relative">
+          <img alt="Gadget collage" class="rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1300&auto=format&fit=crop">
+          <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-100 rounded-3xl -z-10"></div>
+          <div class="absolute -top-6 -right-6 w-32 h-32 bg-cyan-100 rounded-full -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Featured gadgets</h2>
+    <p class="mt-2 text-gray-600">Curated tech that feels like a small invention — priced for everyday use.</p>
+
+    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Card -->
+      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop" alt="Pocket Drone 4K" class="h-56 w-full object-cover">
+          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Bestseller</span>
+        </div>
+        <div class="p-4">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h3 class="font-semibold text-lg leading-tight">Pocket Drone 4K</h3>
+              <p class="text-sm text-gray-600">See the world from new angles</p>
+            </div>
+            <div class="text-right font-bold">$129</div>
+          </div>
+          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.7</span></div>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
+            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Repeat: you can copy these and change content -->
+      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Inkless Mini Printer" class="h-56 w-full object-cover">
+          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">New</span>
+        </div>
+        <div class="p-4">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h3 class="font-semibold text-lg leading-tight">Inkless Mini Printer</h3>
+              <p class="text-sm text-gray-600">Print labels & photos on the go</p>
+            </div>
+            <div class="text-right font-bold">$59</div>
+          </div>
+          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.6</span></div>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
+            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1516054575922-c0f2a51614f9?q=80&w=1200&auto=format&fit=crop" alt="Lite-Up Orb Speaker" class="h-56 w-full object-cover">
+          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Staff pick</span>
+        </div>
+        <div class="p-4">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h3 class="font-semibold text-lg leading-tight">Lite-Up Orb Speaker</h3>
+              <p class="text-sm text-gray-600">Sound you can see</p>
+            </div>
+            <div class="text-right font-bold">$79</div>
+          </div>
+          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.8</span></div>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
+            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1557180295-76eee20ae8aa?q=80&w=1200&auto=format&fit=crop" alt="Mag-Dock Power Hub" class="h-56 w-full object-cover">
+          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Limited</span>
+        </div>
+        <div class="p-4">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <h3 class="font-semibold text-lg leading-tight">Mag-Dock Power Hub</h3>
+              <p class="text-sm text-gray-600">Snap. Charge. Go.</p>
+            </div>
+            <div class="text-right font-bold">$39</div>
+          </div>
+          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.5</span></div>
+          <div class="mt-4 flex items-center gap-3">
+            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
+            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="bg-gray-50 border-y">
+    <div class="mx-auto max-w-6xl px-4 py-16 grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-xl font-bold">Why InventorEye?</h3>
+        <p class="mt-2 text-gray-600">We hunt for clever, useful tech and bundle it with solid support. No hype — just gadgets that make your day 1% better.</p>
+      </div>
+      <ul class="md:col-span-2 grid sm:grid-cols-2 gap-6">
+        <li class="rounded-2xl bg-white p-5 border shadow-sm">
+          <div class="font-semibold">30-day returns</div>
+          <div class="text-sm text-gray-600">Hassle-free refunds on unused items.</div>
+        </li>
+        <li class="rounded-2xl bg-white p-5 border shadow-sm">
+          <div class="font-semibold">Tracked shipping</div>
+          <div class="text-sm text-gray-600">From our partner warehouses to your door.</div>
+        </li>
+        <li class="rounded-2xl bg-white p-5 border shadow-sm">
+          <div class="font-semibold">Curated quality</div>
+          <div class="text-sm text-gray-600">We sample and stress-test before listing.</div>
+        </li>
+        <li class="rounded-2xl bg-white p-5 border shadow-sm">
+          <div class="font-semibold">Fast support</div>
+          <div class="text-sm text-gray-600">Real humans. Real help.</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section id="subscribe" class="mx-auto max-w-6xl px-4 py-16">
+    <div class="rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-500 p-8 md:p-12 text-white">
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <div class="md:col-span-2">
+          <h3 class="text-2xl md:text-3xl font-extrabold">Be first to see new drops</h3>
+          <p class="mt-2 text-blue-100">We send 1–2 emails/month. No spam.</p>
+        </div>
+        <!-- Replace action with your Formspree endpoint when ready -->
+        <form class="flex gap-2" method="POST" action="#">
+          <input required type="email" name="email" placeholder="you@domain.com" class="flex-1 rounded-full px-4 py-3 text-gray-900 placeholder:text-gray-500">
+          <button class="rounded-full bg-white text-blue-700 px-5 py-3 font-semibold hover:bg-blue-50">Join</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="mx-auto max-w-3xl px-4 py-16">
+    <h3 class="text-2xl font-extrabold tracking-tight">FAQ</h3>
+    <div class="mt-6 space-y-4">
+      <details class="rounded-2xl border bg-white p-5">
+        <summary class="font-semibold cursor-pointer">How long is shipping?</summary>
+        <p class="mt-2 text-gray-600">Most orders arrive in 5–10 business days. You'll receive tracking once shipped.</p>
+      </details>
+      <details class="rounded-2xl border bg-white p-5">
+        <summary class="font-semibold cursor-pointer">What is your return policy?</summary>
+        <p class="mt-2 text-gray-600">30-day returns on unused items in original packaging. Contact support@inventoreye.com.</p>
+      </details>
+      <details class="rounded-2xl border bg-white p-5">
+        <summary class="font-semibold cursor-pointer">Do you offer warranty?</summary>
+        <p class="mt-2 text-gray-600">Yes — 1-year limited warranty on electronics. See product pages for details.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t">
+    <div class="mx-auto max-w-6xl px-4 py-10 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-center gap-2">
+          <span class="relative">
+            <span class="w-8 h-8 inline-block rounded-full bg-gradient-to-br from-cyan-400 to-blue-600"></span>
+            <span class="absolute inset-0 flex items-center justify-center text-white font-bold">◉</span>
+          </span>
+          <span class="font-black tracking-tight text-xl">Inventor<span class="text-blue-600">Eye</span></span>
+        </div>
+        <div class="flex gap-6">
+          <a href="#about" class="hover:text-blue-600">About</a>
+          <a href="#faq" class="hover:text-blue-600">FAQ</a>
+          <a href="mailto:support@inventoreye.com" class="hover:text-blue-600">support@inventoreye.com</a>
+        </div>
+      </div>
+      <div class="mt-6">© <span id="y"></span> InventorEye — All rights reserved.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
