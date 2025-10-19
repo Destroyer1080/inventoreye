@@ -5,15 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>InventorEye — Discover the future of everyday tech</title>
   <meta name="description" content="InventorEye curates innovative gadgets and smart tech that make life easier.">
-  <!-- Tailwind CSS (CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232563EB'/%3E%3Ccircle cx='32' cy='32' r='12' fill='white'/%3E%3C/svg%3E">
   <style>
-    /* small utility for star icons */
     .star::before { content: "★"; }
   </style>
 </head>
 <body class="min-h-screen bg-white text-gray-900">
+
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur bg-white/70 border-b">
     <div class="mx-auto max-w-6xl px-4">
@@ -58,7 +57,8 @@
           </div>
         </div>
         <div class="relative">
-          <img alt="Gadget collage" class="rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1300&auto=format&fit=crop">
+          <!-- Switched image: tech setup -->
+          <img alt="Modern tech workspace" class="rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1300&auto=format&fit=crop">
           <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-100 rounded-3xl -z-10"></div>
           <div class="absolute -top-6 -right-6 w-32 h-32 bg-cyan-100 rounded-full -z-10"></div>
         </div>
@@ -71,92 +71,9 @@
     <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Featured gadgets</h2>
     <p class="mt-2 text-gray-600">Curated tech that feels like a small invention — priced for everyday use.</p>
 
-    <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      <!-- Card -->
-      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1200&auto=format&fit=crop" alt="Pocket Drone 4K" class="h-56 w-full object-cover">
-          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Bestseller</span>
-        </div>
-        <div class="p-4">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <h3 class="font-semibold text-lg leading-tight">Pocket Drone 4K</h3>
-              <p class="text-sm text-gray-600">See the world from new angles</p>
-            </div>
-            <div class="text-right font-bold">$129</div>
-          </div>
-          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.7</span></div>
-          <div class="mt-4 flex items-center gap-3">
-            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
-            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Repeat: you can copy these and change content -->
-      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Inkless Mini Printer" class="h-56 w-full object-cover">
-          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">New</span>
-        </div>
-        <div class="p-4">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <h3 class="font-semibold text-lg leading-tight">Inkless Mini Printer</h3>
-              <p class="text-sm text-gray-600">Print labels & photos on the go</p>
-            </div>
-            <div class="text-right font-bold">$59</div>
-          </div>
-          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.6</span></div>
-          <div class="mt-4 flex items-center gap-3">
-            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
-            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1516054575922-c0f2a51614f9?q=80&w=1200&auto=format&fit=crop" alt="Lite-Up Orb Speaker" class="h-56 w-full object-cover">
-          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Staff pick</span>
-        </div>
-        <div class="p-4">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <h3 class="font-semibold text-lg leading-tight">Lite-Up Orb Speaker</h3>
-              <p class="text-sm text-gray-600">Sound you can see</p>
-            </div>
-            <div class="text-right font-bold">$79</div>
-          </div>
-          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.8</span></div>
-          <div class="mt-4 flex items-center gap-3">
-            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
-            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1557180295-76eee20ae8aa?q=80&w=1200&auto=format&fit=crop" alt="Mag-Dock Power Hub" class="h-56 w-full object-cover">
-          <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">Limited</span>
-        </div>
-        <div class="p-4">
-          <div class="flex items-start justify-between gap-2">
-            <div>
-              <h3 class="font-semibold text-lg leading-tight">Mag-Dock Power Hub</h3>
-              <p class="text-sm text-gray-600">Snap. Charge. Go.</p>
-            </div>
-            <div class="text-right font-bold">$39</div>
-          </div>
-          <div class="mt-2 text-yellow-500 text-sm"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span> <span class="ml-1 text-xs text-gray-500">4.5</span></div>
-          <div class="mt-4 flex items-center gap-3">
-            <a href="#" class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">Buy now</a>
-            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
-          </div>
-        </div>
-      </article>
+    <!-- All products removed -->
+    <div class="mt-8 text-gray-500 italic text-center">
+      Product listings coming soon.
     </div>
   </section>
 
@@ -196,7 +113,6 @@
           <h3 class="text-2xl md:text-3xl font-extrabold">Be first to see new drops</h3>
           <p class="mt-2 text-blue-100">We send 1–2 emails/month. No spam.</p>
         </div>
-        <!-- Replace action with your Formspree endpoint when ready -->
         <form class="flex gap-2" method="POST" action="#">
           <input required type="email" name="email" placeholder="you@domain.com" class="flex-1 rounded-full px-4 py-3 text-gray-900 placeholder:text-gray-500">
           <button class="rounded-full bg-white text-blue-700 px-5 py-3 font-semibold hover:bg-blue-50">Join</button>
@@ -244,6 +160,7 @@
       <div class="mt-6">© <span id="y"></span> InventorEye — All rights reserved.</div>
     </div>
   </footer>
+
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </body>
 </html>
