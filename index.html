@@ -93,7 +93,7 @@
             <span class="ml-1 text-xs text-gray-500">4.7</span>
           </div>
 
-          <!-- Quantity (Stripe Payment Links can accept ?quantity=) -->
+          <!-- Quantity -->
           <div class="mt-3 flex items-center gap-3">
             <label for="qty" class="text-sm text-gray-600">Qty</label>
             <input id="qty" type="number" min="1" value="1" class="w-20 rounded-full border px-3 py-1 text-center">
@@ -105,22 +105,14 @@
             <li>🔊 Clear stereo sound</li>
           </ul>
 
-          <div class="mt-4 space-y-2">
-            <!-- Warning shows if no Stripe link set -->
-            <div id="checkout-warning" class="hidden rounded-xl bg-yellow-50 border border-yellow-200 text-yellow-900 text-sm px-3 py-2">
-              Add your Stripe Payment Link to enable checkout.
-            </div>
-
-            <div class="flex items-center gap-3">
-              <a id="buy-soundcore" href="#"
-                 class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-2 text-white cursor-not-allowed"
-                 aria-disabled="true">
-                Buy now
-              </a>
-              <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
-            </div>
+          <!-- Payment Options -->
+          <div class="mt-5">
+            <div class="text-sm font-semibold text-gray-700 mb-2">Buy now — PayPal, Venmo, Debit/Credit Card & more</div>
+            <div id="paypal-buttons" class="space-y-2"></div>
+            <div id="checkout-note" class="mt-2 text-xs text-gray-500">Some options (like Venmo) appear only for eligible browsers and regions.</div>
           </div>
 
+          <!-- Optional: pricing breakdown -->
           <details class="mt-3 text-xs text-gray-500">
             <summary class="cursor-pointer select-none">Pricing breakdown</summary>
             <div class="mt-2 grid grid-cols-2 gap-y-1">
@@ -220,11 +212,11 @@
     </div>
   </footer>
 
+  <!-- PayPal SDK: replace YOUR_PAYPAL_CLIENT_ID -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&components=buttons,funding-eligibility&currency=USD&intent=capture&enable-funding=venmo,card,paylater"></script>
+
   <!-- Scripts -->
   <script>
-    // ✅ Replace this with your real Stripe Payment Link (e.g. "https://buy.stripe.com/abc123...")
-    const CHECKOUT_URL = "";
-
     // Pricing math: charge = cost + shipping + profit
     (function () {
       const card = document.getElementById('prod-soundcore-select-4-go');
@@ -234,53 +226,100 @@
       const ship = parseFloat(card.dataset.shipping || '0');
       const profit = parseFloat(card.dataset.profit || '0');
       const total = cost + ship + profit;
-
       const fmt = (n) => n.toFixed(2);
+
       card.querySelectorAll('.js-price').forEach(el => el.textContent = `$${fmt(total)}`);
 
-      // Optional: fill breakdown section if you expand it
-      const $ = (sel) => card.querySelector(sel);
-      const c=$('.js-cost'), s=$('.js-ship'), p=$('.js-profit');
+      const c = card.querySelector('.js-cost'), s = card.querySelector('.js-ship'), p = card.querySelector('.js-profit');
       if (c) c.textContent = fmt(cost);
       if (s) s.textContent = fmt(ship);
       if (p) p.textContent = fmt(profit);
-
-      // Enable Buy button only if CHECKOUT_URL is valid
-      const buyBtn = document.getElementById('buy-soundcore');
-      const warn = document.getElementById('checkout-warning');
-      const qtyInput = document.getElementById('qty');
-
-      function enableCheckout() {
-        const q = Math.max(1, parseInt(qtyInput.value || '1', 10));
-        // Stripe Payment Links support ?quantity= when enabled for the price
-        const withQty = CHECKOUT_URL + (CHECKOUT_URL.includes('?') ? '&' : '?') + 'quantity=' + encodeURIComponent(q) + '&ref=inventoreye';
-        buyBtn.href = withQty;
-        buyBtn.setAttribute('target', '_blank');
-        buyBtn.setAttribute('rel', 'noopener');
-        buyBtn.classList.remove('bg-gray-300','cursor-not-allowed');
-        buyBtn.classList.add('bg-blue-600','hover:bg-blue-700');
-        buyBtn.removeAttribute('aria-disabled');
-        warn.classList.add('hidden');
-      }
-
-      function disableCheckout() {
-        buyBtn.href = '#';
-        buyBtn.classList.add('bg-gray-300','cursor-not-allowed');
-        buyBtn.classList.remove('bg-blue-600','hover:bg-blue-700');
-        buyBtn.setAttribute('aria-disabled','true');
-        warn.classList.remove('hidden');
-      }
-
-      const looksValid = /^https:\/\/buy\.stripe\.com\//i.test(CHECKOUT_URL);
-      if (looksValid) {
-        enableCheckout();
-        qtyInput.addEventListener('change', enableCheckout);
-        qtyInput.addEventListener('input', enableCheckout);
-      } else {
-        disableCheckout();
-      }
     })();
 
+    // Render PayPal Smart Buttons with multiple funding sources
+    (function renderPayPalButtons() {
+      const container = document.getElementById('paypal-buttons');
+      const qtyInput  = document.getElementById('qty');
+      const card      = document.getElementById('prod-soundcore-select-4-go');
+
+      function unitPrice() {
+        const cost    = parseFloat(card.dataset.cost || '0');
+        const ship    = parseFloat(card.dataset.shipping || '0');
+        const profit  = parseFloat(card.dataset.profit || '0');
+        return (cost + ship + profit);
+      }
+
+      function totalAmount() {
+        const qty = Math.max(1, parseInt(qtyInput.value || '1', 10));
+        return (unitPrice() * qty).toFixed(2);
+      }
+
+      // Helper to render one button for a funding source if eligible
+      function mountButton(fundingSource, styleOverrides) {
+        if (!paypal || !paypal.Buttons) return;
+
+        const btn = paypal.Buttons({
+          fundingSource,
+          style: Object.assign({
+            shape:  'pill',
+            label:  (fundingSource === paypal.FUNDING.CARD ? 'pay' : 'buynow'),
+            height: 45
+          }, styleOverrides || {}),
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [{
+                amount: { currency_code: 'USD', value: totalAmount() },
+                description: 'Soundcore Select 4 Go — Waterproof Speaker'
+              }]
+            });
+          },
+          onApprove: async (data, actions) => {
+            try {
+              const details = await actions.order.capture();
+              // ✅ Success: You might send details to your backend here.
+              alert('Payment complete! Order ' + (details.id || '') + ' captured.');
+              // window.location.href = '/thank-you.html'; // optional redirect
+            } catch (e) {
+              alert('Payment captured, but there was an issue. Please contact support.');
+            }
+          },
+          onError: (err) => {
+            console.error(err);
+            alert('Payment error. Please try another method or contact support.');
+          }
+        });
+
+        // Only render if eligible in this browser/region
+        if (btn.isEligible()) {
+          const slot = document.createElement('div');
+          container.appendChild(slot);
+          btn.render(slot);
+        }
+      }
+
+      // Clear existing buttons (useful if re-rendering on qty change)
+      function clearButtons() {
+        container.innerHTML = '';
+      }
+
+      // Initial render: try PayPal, Venmo, Card, Pay Later (order matters for layout)
+      function renderAll() {
+        clearButtons();
+        mountButton(paypal.FUNDING.PAYPAL);
+        mountButton(paypal.FUNDING.VENMO);
+        mountButton(paypal.FUNDING.CARD, { label: 'pay' });
+        mountButton(paypal.FUNDING.PAYLATER);
+      }
+
+      renderAll();
+
+      // If qty changes, we don't need to re-render the buttons:
+      // amount is recalculated inside createOrder at click time.
+      qtyInput.addEventListener('change', () => {/* no-op: total recomputed on click */});
+      qtyInput.addEventListener('input', () => {/* no-op */});
+    })();
+
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
