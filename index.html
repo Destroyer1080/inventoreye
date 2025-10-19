@@ -7,9 +7,7 @@
   <meta name="description" content="InventorEye curates innovative gadgets and smart tech that make life easier.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%232563EB'/%3E%3Ccircle cx='32' cy='32' r='12' fill='white'/%3E%3C/svg%3E">
-  <style>
-    .star::before { content: "★"; }
-  </style>
+  <style>.star::before{content:"★"}</style>
 </head>
 <body class="min-h-screen bg-white text-gray-900">
 
@@ -42,9 +40,7 @@
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <span class="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-blue-700 bg-white shadow-sm">✨ New drops weekly</span>
-          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">
-            See everyday life <span class="text-blue-600">differently</span>
-          </h1>
+          <h1 class="mt-4 text-4xl md:text-5xl font-extrabold tracking-tight">See everyday life <span class="text-blue-600">differently</span></h1>
           <p class="mt-4 text-gray-600 text-lg">InventorEye curates clever tech that solves real problems — pocket drones, inkless printers, magnetic power hubs and more.</p>
           <div class="mt-6 flex flex-wrap gap-3">
             <a href="#products" class="inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-3 text-white shadow hover:bg-blue-700">Shop gadgets →</a>
@@ -57,7 +53,6 @@
           </div>
         </div>
         <div class="relative">
-          <!-- Switched image: tech setup -->
           <img alt="Modern tech workspace" class="rounded-3xl shadow-xl" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1300&auto=format&fit=crop">
           <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-blue-100 rounded-3xl -z-10"></div>
           <div class="absolute -top-6 -right-6 w-32 h-32 bg-cyan-100 rounded-full -z-10"></div>
@@ -72,16 +67,18 @@
     <p class="mt-2 text-gray-600">Curated tech that feels like a small invention — priced for everyday use.</p>
 
     <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
       <!-- Soundcore Select 4 Go — Waterproof Speaker -->
       <article id="prod-soundcore-select-4-go"
         class="group rounded-2xl border bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
         data-cost="24.99" data-shipping="6.00" data-profit="22.00">
         <div class="relative">
           <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1200&auto=format&fit=crop"
-            alt="Soundcore Select 4 Go Waterproof Speaker"
-            class="h-56 w-full object-cover">
+               alt="Soundcore Select 4 Go Waterproof Speaker"
+               class="h-56 w-full object-cover">
           <span class="absolute left-3 top-3 text-xs bg-white/90 border rounded-full px-3 py-1 shadow">New</span>
         </div>
+
         <div class="p-4">
           <div class="flex items-start justify-between gap-2">
             <div>
@@ -90,27 +87,40 @@
             </div>
             <div class="text-right font-bold"><span class="js-price">$—</span></div>
           </div>
+
           <div class="mt-2 text-yellow-500 text-sm">
             <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star opacity-20"></span>
             <span class="ml-1 text-xs text-gray-500">4.7</span>
           </div>
+
+          <!-- Quantity (Stripe Payment Links can accept ?quantity=) -->
+          <div class="mt-3 flex items-center gap-3">
+            <label for="qty" class="text-sm text-gray-600">Qty</label>
+            <input id="qty" type="number" min="1" value="1" class="w-20 rounded-full border px-3 py-1 text-center">
+          </div>
+
           <ul class="mt-3 text-sm text-gray-600 space-y-1">
             <li>🔋 USB-C rechargeable</li>
             <li>💦 Waterproof (IP67)</li>
             <li>🔊 Clear stereo sound</li>
           </ul>
-          <div class="mt-4 flex items-center gap-3">
-            <!-- Stripe Payment Link checkout -->
-            <a id="buy-soundcore"
-               href="#"
-               target="_blank" rel="noopener"
-               class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-              Buy now
-            </a>
-            <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+
+          <div class="mt-4 space-y-2">
+            <!-- Warning shows if no Stripe link set -->
+            <div id="checkout-warning" class="hidden rounded-xl bg-yellow-50 border border-yellow-200 text-yellow-900 text-sm px-3 py-2">
+              Add your Stripe Payment Link to enable checkout.
+            </div>
+
+            <div class="flex items-center gap-3">
+              <a id="buy-soundcore" href="#"
+                 class="flex-1 inline-flex items-center justify-center gap-2 rounded-full bg-gray-300 px-4 py-2 text-white cursor-not-allowed"
+                 aria-disabled="true">
+                Buy now
+              </a>
+              <a href="#" class="rounded-full border px-4 py-2 hover:bg-gray-50">Learn more</a>
+            </div>
           </div>
 
-          <!-- Optional: show pricing breakdown -->
           <details class="mt-3 text-xs text-gray-500">
             <summary class="cursor-pointer select-none">Pricing breakdown</summary>
             <div class="mt-2 grid grid-cols-2 gap-y-1">
@@ -122,6 +132,7 @@
           </details>
         </div>
       </article>
+
     </div>
   </section>
 
@@ -211,11 +222,10 @@
 
   <!-- Scripts -->
   <script>
-    // 1) Set your Stripe Payment Link here (replace with your real link)
-    // Example looks like: https://buy.stripe.com/test_xxxxxxxxx
-    const CHECKOUT_URL = "https://buy.stripe.com/your_payment_link_here";
+    // ✅ Replace this with your real Stripe Payment Link (e.g. "https://buy.stripe.com/abc123...")
+    const CHECKOUT_URL = "";
 
-    // 2) Dynamic pricing: charge = cost + shipping + profit
+    // Pricing math: charge = cost + shipping + profit
     (function () {
       const card = document.getElementById('prod-soundcore-select-4-go');
       if (!card) return;
@@ -224,24 +234,53 @@
       const ship = parseFloat(card.dataset.shipping || '0');
       const profit = parseFloat(card.dataset.profit || '0');
       const total = cost + ship + profit;
+
       const fmt = (n) => n.toFixed(2);
-
-      // Update visible UI
       card.querySelectorAll('.js-price').forEach(el => el.textContent = `$${fmt(total)}`);
-      const costEl = card.querySelector('.js-cost');   if (costEl)  costEl.textContent = fmt(cost);
-      const shipEl = card.querySelector('.js-ship');   if (shipEl)  shipEl.textContent = fmt(ship);
-      const profEl = card.querySelector('.js-profit'); if (profEl) profEl.textContent = fmt(profit);
 
-      // Wire the Buy button to your checkout URL
+      // Optional: fill breakdown section if you expand it
+      const $ = (sel) => card.querySelector(sel);
+      const c=$('.js-cost'), s=$('.js-ship'), p=$('.js-profit');
+      if (c) c.textContent = fmt(cost);
+      if (s) s.textContent = fmt(ship);
+      if (p) p.textContent = fmt(profit);
+
+      // Enable Buy button only if CHECKOUT_URL is valid
       const buyBtn = document.getElementById('buy-soundcore');
-      if (buyBtn && CHECKOUT_URL && CHECKOUT_URL.startsWith('http')) {
-        // Optional: pass product name for tracking
-        const product = encodeURIComponent('Soundcore Select 4 Go');
-        buyBtn.href = `${CHECKOUT_URL}?ref=site&item=${product}`;
+      const warn = document.getElementById('checkout-warning');
+      const qtyInput = document.getElementById('qty');
+
+      function enableCheckout() {
+        const q = Math.max(1, parseInt(qtyInput.value || '1', 10));
+        // Stripe Payment Links support ?quantity= when enabled for the price
+        const withQty = CHECKOUT_URL + (CHECKOUT_URL.includes('?') ? '&' : '?') + 'quantity=' + encodeURIComponent(q) + '&ref=inventoreye';
+        buyBtn.href = withQty;
+        buyBtn.setAttribute('target', '_blank');
+        buyBtn.setAttribute('rel', 'noopener');
+        buyBtn.classList.remove('bg-gray-300','cursor-not-allowed');
+        buyBtn.classList.add('bg-blue-600','hover:bg-blue-700');
+        buyBtn.removeAttribute('aria-disabled');
+        warn.classList.add('hidden');
+      }
+
+      function disableCheckout() {
+        buyBtn.href = '#';
+        buyBtn.classList.add('bg-gray-300','cursor-not-allowed');
+        buyBtn.classList.remove('bg-blue-600','hover:bg-blue-700');
+        buyBtn.setAttribute('aria-disabled','true');
+        warn.classList.remove('hidden');
+      }
+
+      const looksValid = /^https:\/\/buy\.stripe\.com\//i.test(CHECKOUT_URL);
+      if (looksValid) {
+        enableCheckout();
+        qtyInput.addEventListener('change', enableCheckout);
+        qtyInput.addEventListener('input', enableCheckout);
+      } else {
+        disableCheckout();
       }
     })();
 
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
